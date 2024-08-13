@@ -1,0 +1,39 @@
+.Post {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  background-color: var(--cardColor);
+  border-radius: 1rem;
+  gap: 1rem;
+}
+
+.logo > img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+.adduser{
+  display: flex;
+  justify-content: end;
+  margin-left: 50%;
+  color: rgb(48, 95, 227);
+  padding-top: 20px;
+}
+.post-detail > img {
+  width: 100%;
+  max-height: 20rem;
+  object-fit: cover;
+  border-radius: 0.5rem;
+}
+.postReact {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+}
+.postReact>button{
+    font-size: 20px;
+}
+.likes > span{
+  font-size: 15px;
+  padding: 10px 0px 0px 10px;
+}

@@ -1,0 +1,33 @@
+/* Ensure the main sections take full width */
+.LandingPage,
+.LandingHero,
+.LandingBanner {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.LandingHero {
+  height: 100vh; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  background-image: url('../../assets/images/blogbackground.jpg');
+  background-size: cover;
+  position: relative;
+  /* background-color: #000;  */
+
+}
+
+.LandingBanner_text {
+  text-align: center;
+  padding: 20px;
+
+}
+.landing-buttons button{
+  width: 150px;
+  height: 50px;
+  border: none;
+  font-size: 18px;
+}
