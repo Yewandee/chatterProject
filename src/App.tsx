@@ -17,6 +17,9 @@ import Reset from "./pages/Reset/Reset";
 import AboutUs from "./component/HomePage/AboutUs";
 import Blog from "./component/Blog/Blog";
 import FriendProfile from "./component/FriendProfile/FriendProfile";
+// import BlogLayout from "./component/Blog/BlogLayout";
+import PostContent from "./component/PostContents/postContent";
+// import SideNav from "./component/sidenav/sidenav";
 
 const App: React.FC = () => {
   const [user, setUser] = useState<any>(null);
@@ -39,7 +42,7 @@ const App: React.FC = () => {
       <AppContext>
         <Routes>
           <Route path="/home" element={<HomePage />} />
-        <Route
+          <Route
             path="/home"
             element={user ? <Navigate to="/home" /> : <LandingPage />}
           />
@@ -48,9 +51,10 @@ const App: React.FC = () => {
           <Route path="/login" element={<Login />} />
           <Route path="/reset" element={<Reset />} />
           <Route path="/about" element={<AboutUs />} />
-          <Route path="/blog" element={<Blog />} />
-          <Route path="/profile/:id" element={<FriendProfile/>} />
-          
+          <Route path="/blog" element={<Blog />}>
+            <Route index element={<PostContent />} />
+          </Route>
+          <Route path="/profile/:id" element={<FriendProfile />} />
 
           {/* <Route path="*" element={<Navigate to="/landing" />} /> */}
         </Routes>

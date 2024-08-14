@@ -1,17 +1,12 @@
 import React, { useState } from "react";
-// import "./LandingPage.css";
 import { NavLink, Link } from "react-router-dom";
-import { Navbar } from "react-bootstrap";
-import { useNavigate } from "react-router-dom";
 import { auth } from "../../firebase/firebase";
 import "bootstrap/dist/css/bootstrap.min.css";
-// import './Header.css'
+import "./Header.css";
 
 import { IoChatboxEllipsesOutline } from "react-icons/io5";
 
 const Header: React.FC = () => {
-  const navigate = useNavigate();
-
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -32,7 +27,7 @@ const Header: React.FC = () => {
               CHATTER
             </NavLink>
 
-            {/* <button
+            <button
               className="navbar-toggler"
               type="button"
               data-bs-toggle="collapse"
@@ -43,43 +38,40 @@ const Header: React.FC = () => {
               onClick={toggleMenu}
             >
               <span className="navbar-toggler-icon"></span>
-            </button> */}
-            <Navbar.Toggle aria-controls="responsive-navbar-nav" onClick={toggleMenu} />
+            </button>
 
-            <div className="collapse navbar-collapse justify-content-center" id="navbarNav">
-              <Navbar.Collapse className={isMenuOpen ? "show" : ""}>
-                <ul className="navbar-nav ms-auto">
-                  <li className="nav-item">
-                    <Link className="nav-link" to="/home">
-                      Home
-                    </Link>
-                  </li>
-                  <li className="nav-item">
-                    <Link className="nav-link" to="/about">
-                      About Us
-                    </Link>
-                  </li>
-                  <li className="nav-item">
-                    <Link className="nav-link" to="/blog">
-                      Blog
-                    </Link>
-                  </li>
-                  <li className="nav-item">
-                    <Link className="nav-link" to="/contact">
-                      Contact Us
-                    </Link>
-                  </li>
-                  <div className="d-flex">
-                    <button
-                      className="btn btn-primary mx-2 me-md-2 bg-dark btn-outline-light"
-                      onClick={handleLogout}
-                    >
-                      LogOut
-                    </button>
-                   
-                  </div>
-                </ul>
-              </Navbar.Collapse>
+            <div
+              className={`collapse navbar-collapse justify-content-center 
+                ${isMenuOpen ? "show" : ""}
+                `}
+              id="navbarNav"
+            >
+              <ul className="navbar-nav ms-auto">
+                <li className="nav-item">
+                  <Link className="nav-link" to="/home">
+                    Home
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <Link className="nav-link" to="/about">
+                    About Us
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <Link className="nav-link" to="/blog">
+                    Blog
+                  </Link>
+                </li>
+
+                <div className="d-flex">
+                  <button
+                    className="btn btn-primary mx-2 me-md-2 bg-dark btn-outline-light"
+                    onClick={handleLogout}
+                  >
+                    LogOut
+                  </button>
+                </div>
+              </ul>
             </div>
           </div>
         </nav>

@@ -4,8 +4,47 @@
   grid-template-columns: 25rem auto;
   gap: 1rem;
 }
-.blog-center {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
+.sideNav{
+    position: fixed;
+}
+.open-btn, .close-btn{
+    display: none;
+}
+
+
+@media (max-width: 768px) {
+  .blog {
+    grid-template-columns: 1fr;
+  }
+
+  .sideNav.hidden {
+    display: none;
+  }
+
+  .blog-center.hidden {
+    display: none;
+  }
+
+  .sideNav.visible {
+    display: block;
+  }
+
+  .blog-center.visible {
+    display: block;
+  }
+  .open-btn {
+    display: flex;
+    font-size: 30px;
+    margin-left: 90%;
+    background-color: white;
+    border: none;
+  }
+
+  .close-btn {
+    display: flex;
+    font-size: 30px;
+    margin-left: 90%;
+    background-color: white;
+    border: none;
+  }
 }

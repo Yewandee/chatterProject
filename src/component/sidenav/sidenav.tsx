@@ -7,8 +7,7 @@ const SideNav: React.FC = () => {
   return (
     <div className="sideNav">
         <LogoSearch/>
-        <ProfileCard/>
-        
+        <ProfileCard/> 
     </div>
   )
 }

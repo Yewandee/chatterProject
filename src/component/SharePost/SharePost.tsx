@@ -185,10 +185,6 @@ const SharePost: React.FC = () => {
               <FaVideo />
               Video
             </div>
-            <div className="option" style={{ color: "var(--location)" }}>
-              <FaMapMarkerAlt />
-              Location
-            </div>
 
             <button className="button ps-button" type="submit">
               Share

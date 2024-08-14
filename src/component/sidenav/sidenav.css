@@ -4,4 +4,10 @@
   gap: 1rem;
   align-items: center;
   overflow: auto;
+  position: static;
+}
+@media (max-width: 768px) {
+  /* .sideNav{
+    display: none;
+  } */
 }

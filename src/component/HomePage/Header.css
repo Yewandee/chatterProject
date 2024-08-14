@@ -1,14 +1,16 @@
-.navbar {
-    max-width: 1200px;
-    margin: 0 auto;
-    height: 80px;
-    justify-content: center;
-  }
-  
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.navbar-collapse {
+  justify-content: center;
+}
 @media (max-width: 768px) {
-  .navbar {
+  .header{
     height: auto;
-    /* background-color: #fff; */
+    background-color: black;
   }
   .navbar-nav {
     text-align: center;
