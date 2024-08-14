@@ -19,6 +19,7 @@ import Blog from "./component/Blog/Blog";
 import FriendProfile from "./component/FriendProfile/FriendProfile";
 // import BlogLayout from "./component/Blog/BlogLayout";
 import PostContent from "./component/PostContents/postContent";
+import Bookmarks from "./component/Bookmarks/Bookmark";
 // import SideNav from "./component/sidenav/sidenav";
 
 const App: React.FC = () => {
@@ -46,15 +47,16 @@ const App: React.FC = () => {
             path="/home"
             element={user ? <Navigate to="/home" /> : <LandingPage />}
           />
-          <Route path="/" element={<LandingPage />} />
+          {/* <Route path="/" element={<LandingPage />} /> */}
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
           <Route path="/reset" element={<Reset />} />
-          <Route path="/about" element={<AboutUs />} />
+          <Route path="/" element={<AboutUs />} />
           <Route path="/blog" element={<Blog />}>
             <Route index element={<PostContent />} />
           </Route>
           <Route path="/profile/:id" element={<FriendProfile />} />
+          <Route path="/bookmarks" element={<Bookmarks />} />
 
           {/* <Route path="*" element={<Navigate to="/landing" />} /> */}
         </Routes>

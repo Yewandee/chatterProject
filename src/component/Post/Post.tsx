@@ -23,10 +23,11 @@ import {
 import { db } from "../../firebase/firebase";
 
 import { formatTime } from "../Utils/FormatDate";
-import { FcLike } from "react-icons/fc";
+import { BsHeart, BsHeartFill } from "react-icons/bs";
 import { FaRegComment } from "react-icons/fa";
 import { RiDeleteBinLine } from "react-icons/ri";
 import { IoPersonAddSharp } from "react-icons/io5";
+import { BsBookmark, BsBookmarkFill } from "react-icons/bs";
 import CommentCard from "../Comment/CommentCard";
 
 interface PostType {
@@ -66,9 +67,14 @@ const Post: React.FC<PostType> = ({
   const [isFriend, setIsFriend] = useState(false);
   const [open, setOpen] = useState(false);
 
+  const [isLiked, setIsLiked] = useState(false);
+  const [isBookmarked, setIsBookmarked] = useState(false);
+  const [bookmarkCount, setBookmarkCount] = useState(0);
+
   const [state, dispatch] = useReducer(PostsReducer, postsStates);
   const likesRef = doc(collection(db, "posts", documentId, "likes"));
   const likesCollection = collection(db, "posts", documentId, "likes");
+  const bookmarksCollection = collection(db, "posts", documentId, "bookmarks");
   const singlePostDocument = doc(db, "posts", documentId);
   const { ADD_LIKE, HANDLE_ERROR } = postActions;
 
@@ -148,6 +154,35 @@ const Post: React.FC<PostType> = ({
     }
   };
 
+ 
+  const handleBookmark = async () => {
+    const q = query(bookmarksCollection, where("id", "==", user?.uid));
+    const querySnapshot = await getDocs(q);
+    const bookmarkDocId = querySnapshot.docs[0]?.id;
+
+    try {
+      if (bookmarkDocId !== undefined) {
+        const deleteId = doc(
+          db,
+          "posts",
+          documentId,
+          "bookmarks",
+          bookmarkDocId
+        );
+        await deleteDoc(deleteId);
+        setIsBookmarked(false);
+      } else {
+        await setDoc(doc(bookmarksCollection), {
+          id: user?.uid,
+        });
+        setIsBookmarked(true);
+      }
+    } catch (err: any) {
+      alert(err.message);
+      console.log(err.message);
+    }
+  };
+
   useEffect(() => {
     const getLikes = async () => {
       try {
@@ -191,8 +226,25 @@ const Post: React.FC<PostType> = ({
       }
     };
 
+    const getBookmarks = async () => {
+      try {
+        const q = collection(db, "posts", documentId, "bookmarks");
+        const unsubscribe = onSnapshot(q, (snapshot) => {
+          setBookmarkCount(snapshot.docs.length);
+          const isUserBookmarked = snapshot.docs.some(
+            (doc) => doc.data().id === user?.uid
+          );
+          setIsBookmarked(isUserBookmarked);
+        });
+        return () => unsubscribe();
+      } catch (err: any) {
+        console.log(err.message);
+      }
+    };
+
     getLikes();
     checkFriendStatus();
+    getBookmarks();
   }, [documentId, user?.uid, uid, ADD_LIKE, HANDLE_ERROR]);
 
   return (
@@ -224,7 +276,7 @@ const Post: React.FC<PostType> = ({
 
       <div className="postReact">
         <button className="bg-white border-0 likes" onClick={handleLike}>
-          <FcLike />
+          {state.likes?.length > 0 ? <BsHeartFill color="red" /> : <BsHeart />}
           <span>{state.likes?.length > 0 && state?.likes?.length}</span>
         </button>
 
@@ -237,6 +289,11 @@ const Post: React.FC<PostType> = ({
             <RiDeleteBinLine />
           </button>
         )}
+
+        <button className="bg-white border-0" onClick={handleBookmark}>
+          {isBookmarked ? <BsBookmarkFill /> : <BsBookmark />}
+          <span>{bookmarkCount > 0 && bookmarkCount}</span>
+        </button>
       </div>
 
       <div className="timeposted">
