@@ -63,11 +63,11 @@ const Post: React.FC<PostType> = ({
   if (!authContext) {
     return <div>Loading..</div>;
   }
-  const { user, userData } = authContext;
+  const { user } = authContext;
   const [isFriend, setIsFriend] = useState(false);
   const [open, setOpen] = useState(false);
 
-  const [isLiked, setIsLiked] = useState(false);
+ 
   const [isBookmarked, setIsBookmarked] = useState(false);
   const [bookmarkCount, setBookmarkCount] = useState(0);
 

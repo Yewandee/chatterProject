@@ -15,7 +15,7 @@ import {
   orderBy,
   query,
   onSnapshot,
-  DocumentData,
+  
 } from "firebase/firestore";
 import { db } from "../../firebase/firebase";
 import {

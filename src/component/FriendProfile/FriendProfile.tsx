@@ -4,7 +4,7 @@ import {
   where,
   query,
   onSnapshot,
-  DocumentData,
+ 
 } from "firebase/firestore";
 import { db } from "../../firebase/firebase";
 import { useParams } from "react-router-dom";

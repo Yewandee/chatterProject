@@ -47,11 +47,11 @@ const App: React.FC = () => {
             path="/home"
             element={user ? <Navigate to="/home" /> : <LandingPage />}
           />
-          {/* <Route path="/" element={<LandingPage />} /> */}
+          <Route path="/" element={<LandingPage />} />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
           <Route path="/reset" element={<Reset />} />
-          <Route path="/" element={<AboutUs />} />
+          <Route path="/about" element={<AboutUs />} />
           <Route path="/blog" element={<Blog />}>
             <Route index element={<PostContent />} />
           </Route>

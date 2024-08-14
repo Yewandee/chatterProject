@@ -5,7 +5,7 @@ import React, {
   ChangeEvent,
   useContext,
 } from "react";
-import { FaImage, FaVideo, FaMapMarkerAlt, FaTimes } from "react-icons/fa";
+import { FaImage, FaVideo,  FaTimes } from "react-icons/fa";
 import "./SharePost.css";
 import { AuthContext } from "../AppContext/AppContext";
 import { doc, setDoc, collection, serverTimestamp } from "firebase/firestore";
