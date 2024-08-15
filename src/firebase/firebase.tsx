@@ -2,15 +2,22 @@ import { initializeApp } from "firebase/app";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 
+const apiKey = import.meta.env.VITE_API_KEY;
+const authDomain = import.meta.env.VITE_AUTH_DOMAIN;
+const projectId = import.meta.env.VITE_PROJECT_ID;
+const storageBucket = import.meta.env.VITE_STORAGE_BUCKET;
+const messagingSenderId = import.meta.env.VITE_MESSAGING_SENDER;
+const appId = import.meta.env.VITE_APP_ID;
+const measurementId = import.meta.env.VITE_MEASUREMENT;
 
 const firebaseConfig = {
-  apiKey: "AIzaSyB1jdSAqgBCUaDc93d8DdekeoEIIpNeIy8",
-  authDomain: "chatter-9ecf3.firebaseapp.com",
-  projectId: "chatter-9ecf3",
-  storageBucket: "chatter-9ecf3.appspot.com",
-  messagingSenderId: "341917462498",
-  appId: "1:341917462498:web:91b0bdd31cd6c16fcd93bb",
-  measurementId: "G-X3KJ3XLTMQ",
+  apiKey: apiKey,
+  authDomain: authDomain,
+  projectId: projectId,
+  storageBucket: storageBucket,
+  messagingSenderId: messagingSenderId,
+  appId: appId,
+  measurementId: measurementId,
 };
 
 export const app = initializeApp(firebaseConfig);
