@@ -4,6 +4,7 @@ import Aos from "aos";
 import "aos/dist/aos.css";
 import interaction from "../../assets/images/interactions.webp";
 import Header from "./Header";
+import './HomePage.css'
 
 const AboutUs: React.FC = () => {
   useEffect(() => {
@@ -13,7 +14,7 @@ const AboutUs: React.FC = () => {
     <section className="AboutUs">
       <Header />
       <div className="about-us bg-light py-5">
-        <div className="container text-center">
+        <div className="container text-center about-text">
           <h2>About Chatter</h2>
           <p className="lead">
             Chatter is a multi-functional platform designed for authors and

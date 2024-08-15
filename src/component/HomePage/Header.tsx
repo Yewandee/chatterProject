@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { NavLink, Link } from "react-router-dom";
 import { auth } from "../../firebase/firebase";
 import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import "./Header.css";
 
 import { IoChatboxEllipsesOutline } from "react-icons/io5";

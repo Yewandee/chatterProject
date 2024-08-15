@@ -218,7 +218,7 @@ const Post: React.FC<PostType> = ({
             (friend: any) => friend.id === uid
           );
           setIsFriend(isAlreadyFriend);
-          console.log("My Friend", isAlreadyFriend);
+        
         }
       } catch (err: any) {
         alert(err.message);

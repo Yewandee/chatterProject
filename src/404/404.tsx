@@ -12,13 +12,5 @@ const NotFound: React.FC = () => {
   );
 };
 
-const styles = {
- 
-  link: {
-    fontSize: '1rem',
-    color: '#167bff',
-    textDecoration: 'none',
-  },
-};
 
 export default NotFound;

@@ -19,8 +19,6 @@
   
   
   position: relative;
-  /* background-color: #000;  */
-
 }
 
 .LandingBanner_text {
@@ -33,4 +31,17 @@
   height: 50px;
   border: none;
   font-size: 18px;
+}
+
+@media (max-width: 767px) {
+  .AboutUs{
+    height: auto;
+    
+  }
+  .about-us{
+    display: none;
+    margin: 0;
+    padding: 0;
+  }
+  
 }
