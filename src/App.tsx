@@ -17,10 +17,10 @@ import Reset from "./pages/Reset/Reset";
 import AboutUs from "./component/HomePage/AboutUs";
 import Blog from "./component/Blog/Blog";
 import FriendProfile from "./component/FriendProfile/FriendProfile";
-// import BlogLayout from "./component/Blog/BlogLayout";
 import PostContent from "./component/PostContents/postContent";
 import Bookmarks from "./component/Bookmarks/Bookmark";
-// import SideNav from "./component/sidenav/sidenav";
+import NotFound from "./404/404";
+import ClipLoader from "react-spinners/ClipLoader";
 
 const App: React.FC = () => {
   const [user, setUser] = useState<any>(null);
@@ -35,7 +35,13 @@ const App: React.FC = () => {
   }, []);
 
   if (loading) {
-    return <div>Loading...</div>;
+    return (
+      <div className="d-flex justify-content-center mt-5 w-100 h-100">
+        <div className="spinner-border" role="status">
+          <span className="visually-hidden">Loading...</span>
+        </div>
+      </div>
+    );
   }
 
   return (
@@ -58,7 +64,7 @@ const App: React.FC = () => {
           <Route path="/profile/:id" element={<FriendProfile />} />
           <Route path="/bookmarks" element={<Bookmarks />} />
 
-          {/* <Route path="*" element={<Navigate to="/landing" />} /> */}
+          <Route path="*" element={<NotFound />} />
         </Routes>
 
         <ToastContainer />

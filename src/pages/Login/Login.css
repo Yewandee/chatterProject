@@ -35,3 +35,43 @@
       text-align: center;
   }
   
+  @media (max-width: 768px) {
+    .login {
+      width: 90%;
+      margin: 20px auto; 
+      padding: 20px; 
+    }
+  
+    .login .form-control {
+      font-size: 14px; 
+    }
+  
+    .login .form-control:focus {
+      border-color: #167bff;
+      box-shadow: none;
+    }
+  
+    .forgot-password,
+    .forgot-password a {
+      font-size: 10px;
+      padding-top: 8px;
+      color: #7f7d7d;
+      text-align: center; 
+    }
+  
+    .forgot-password p {
+      font-size: 8px;
+    }
+  
+    .forgot-password a {
+      color: #167bff;
+    }
+  
+    .continue-p {
+      font-size: 12px; 
+      color: #b2b2b2;
+      font-weight: 600;
+      margin-top: 1rem;
+      text-align: center;
+    }
+  }

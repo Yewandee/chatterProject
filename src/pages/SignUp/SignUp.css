@@ -23,3 +23,33 @@
 .forgot-password a {
   color: #167bff;
 }
+
+
+@media (max-width: 768px) {
+  .signup {
+    width: 90%;
+    margin: 20px auto;
+    padding: 20px; 
+  }
+
+  .signup .form-control {
+    font-size: 14px;
+  }
+
+  .signup .form-control:focus {
+    border-color: #167bff;
+    box-shadow: none;
+  }
+
+  .forgot-password,
+  .forgot-password a {
+    font-size: 14px;
+    padding-top: 8px;
+    text-align: center;
+  }
+
+  .forgot-password a {
+    color: #167bff;
+  }
+}
+

@@ -45,7 +45,7 @@ const Reset: React.FC = () => {
         </div>
 
         <div className="d-grid">
-          <button type="submit" className="btn btn-primary">
+          <button type="submit" className="btn btn-dark">
             Continue
           </button>
         </div>
