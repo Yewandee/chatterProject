@@ -13,6 +13,9 @@ const PostsList: React.FC = () => {
     name: string;
     email: string;
     image: string;
+    video: string;
+    file: string;
+    fileName: string;
     text: string;
     timestamp: {
       toDate: () => Date;
@@ -37,6 +40,9 @@ const PostsList: React.FC = () => {
             name: data.name,
             email: data.email,
             image: data.image,
+            video: data.video,
+            file: data.file,
+            fileName: data.fileName,
             text: data.text,
             timestamp: data.timestamp,
           } as PostType;

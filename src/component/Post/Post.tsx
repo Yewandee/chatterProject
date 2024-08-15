@@ -37,6 +37,9 @@ interface PostType {
   name: string;
   email: string;
   image?: string;
+  video?: string ;
+  file?: string ;
+  fileName?: string;
   text?: string;
   id: string;
   timestamp: {
@@ -48,10 +51,12 @@ const Post: React.FC<PostType> = ({
   logo,
   documentId,
   uid,
-  id,
   name,
   email,
   image,
+  video,
+  file,
+  fileName,
   text,
   timestamp,
 }) => {
@@ -271,7 +276,24 @@ const Post: React.FC<PostType> = ({
 
       <div className="post-detail">
         {text && <p>{text}</p>}
-        {image ? <img src={image} alt="Post content" /> : null}
+        {image && (
+          <div className="post-media">
+            <img src={image} alt="Post media" className="post-image" />
+          </div>
+        )}
+
+        {video && (
+          <div className="post-media">
+            <video src={video} controls className="post-video" />
+          </div>
+        )}
+        {file && (
+          <div className="post-media">
+            <a href={file} target="_blank" rel="noopener noreferrer">
+              {fileName || "Download File"}
+            </a>
+          </div>
+        )}
       </div>
 
       <div className="postReact">
