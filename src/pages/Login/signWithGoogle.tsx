@@ -13,7 +13,7 @@ const SignWithGoogle: React.FC = () => {
   function googleLogin (){
     const provider = new GoogleAuthProvider();
     signInWithPopup(auth, provider).then(async (result) => {
-      console.log(result);
+      // console.log(result);
       const user = result.user;
       if (result.user) {
         await setDoc(doc(db, "Users", user.uid), {

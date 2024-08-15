@@ -1,5 +1,4 @@
 
-
 import React, { useContext, useEffect, useState } from "react";
 import Cover from "../../assets/images/cover.jpg";
 import { FaUser } from "react-icons/fa";
@@ -12,6 +11,18 @@ import { Link } from "react-router-dom";
 import { BsBookmarkFill } from "react-icons/bs";
 
 const ProfileCard: React.FC = () => {
+  interface PostType {
+    logo: string;
+    documentId: string;
+    uid: string;
+    name: string;
+    email: string;
+    image: string;
+    text: string;
+    timestamp: {
+      toDate: () => Date;
+    };
+  }
   const authContext = useContext(AuthContext);
   const [friendsCount, setFriendsCount] = useState(0);
   const [postsCount, setPostsCount] = useState(0);
@@ -57,7 +68,15 @@ const ProfileCard: React.FC = () => {
       }
     };
 
+    const fetchBookmarkedPosts = async () => {
+      const bookmarksCollection = collection(db, "bookmarks");
+      const q = query(bookmarksCollection, where("id", "==", user?.uid));
+      const querySnapshot = await getDocs(q);
+      const bookmarkedPosts = querySnapshot.docs.map((doc) => doc.data() as PostType);
+      return bookmarkedPosts;
+    };
 
+    fetchBookmarkedPosts();
   
     fetchUserData();
     fetchPostsCount();

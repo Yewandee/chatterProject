@@ -6,7 +6,6 @@ import React, {
   FormEvent,
 } from "react";
 import { AuthContext } from "../AppContext/AppContext";
-import { addDoc } from "firebase/firestore";
 import {
   setDoc,
   collection,
@@ -15,7 +14,6 @@ import {
   orderBy,
   query,
   onSnapshot,
-  
 } from "firebase/firestore";
 import { db } from "../../firebase/firebase";
 import {

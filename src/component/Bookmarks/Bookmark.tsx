@@ -77,4 +77,3 @@ const Bookmarks: React.FC = () => {
 };
 
 export default Bookmarks;
-
